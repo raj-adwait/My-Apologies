@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For My Love Roshni ❤️</title>
+  <style>
+    :root{
+      --accent:#ff4d79;
+      --soft:#4a0033;
+      --muted:#6d3b53;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      height:100vh;
+      font-family:'Poppins', sans-serif;
+      display:flex;justify-content:center;align-items:center;
+      padding:20px;color:var(--soft);
+      position:relative;overflow:hidden;
+    }
+    body::before{
+      content:"";
+      position:absolute;inset:0;
+      background:url('Fav pic.jpg') center/cover no-repeat;
+      filter:blur(20px) brightness(0.8);
+      z-index:-2;
+    }
+    body::after{
+      content:"";
+      position:absolute;inset:0;
+      background:rgba(255,240,245,0.7);
+      z-index:-1;
+    }
+    .card{
+      background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);
+      border-radius:25px;padding:40px;box-shadow:0 10px 30px rgba(255,77,121,0.3);
+      max-width:900px;width:100%;position:relative;overflow:hidden;text-align:center;
+    }
+    h1{
+      font-size:2.4rem;margin-bottom:10px;color:var(--accent);
+    }
+    p.lead{font-size:1.1rem;color:var(--muted);margin-bottom:30px}
+    .heart-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+    .heart{position:absolute;font-size:22px;opacity:0.8;animation:float 8s ease-in-out infinite;}
+    @keyframes float{
+      0%{transform:translateY(0) scale(1);opacity:1}
+      50%{transform:translateY(-30px) scale(1.2);opacity:0.9}
+      100%{transform:translateY(0) scale(1);opacity:1}
+    }
+    .message{
+      background:rgba(255,255,255,0.85);padding:25px;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom:20px;font-size:1.1rem;line-height:1.7;
+    }
+    .poem{
+      font-style:italic;color:#c2185b;margin-top:15px;font-size:1.05rem;
+    }
+    button{
+      background:linear-gradient(90deg,var(--accent),#ff99b3);
+      border:none;color:white;padding:12px 22px;border-radius:25px;
+      font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s ease;margin-top:20px;
+    }
+    button:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(255,77,121,0.4)}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="heart-bg" id="heart-bg"></div>
+    <h1>My Dearest Roshni ❤️</h1>
+    <p class="lead">I made this for you — to say I’m truly sorry, and to remind you that my heart beats softer and warmer when it’s near yours.</p>
+
+    <div class="message" id="msg">
+      Hey my love, I know my tone and attitude last time were wrong. I spoke like a storm when you deserved calm. You didn’t deserve that, not even for a second. You are my peace, my sunrise, and I’m sorry for dimming your light. 💖
+      <div class="poem" id="poem">
+        “If words could heal, I'd whisper forever,<br>
+        That I’m yours, through every endeavor.<br>
+        In my silence you felt pain’s call,<br>
+        But my heart never stopped loving you at all.”
+      </div>
+    </div>
+
+    <button id="btnReveal">Click to Feel My Heartbeat 💓</button>
+  </div>
+
+  <script>
+    const heartBg = document.getElementById('heart-bg');
+    function createHeart(){
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random()*100 + '%';
+      heart.style.top = Math.random()*100 + '%';
+      heart.style.color = ['#ff4d79','#ff85a2','#ffb3c6'][Math.floor(Math.random()*3)];
+      heart.innerHTML = '❤';
+      heart.style.animationDelay = (Math.random()*5)+'s';
+      heartBg.appendChild(heart);
+    }
+    for(let i=0;i<25;i++) createHeart();
+
+    document.getElementById('btnReveal').addEventListener('click',()=>{
+      const msg = document.getElementById('msg');
+      msg.innerHTML += `<div class='poem' style='margin-top:20px;'>You are my always, my peace, my Roshni — the one I never want to lose again. I love you endlessly, forgive me my love. 💞</div>`;
+      document.getElementById('btnReveal').disabled = true;
+      document.getElementById('btnReveal').textContent = 'I Love You, Roshni 💘';
+    });
+  </script>
+</body>
+</html>
